@@ -1,13 +1,15 @@
 import reflex as rx
 from datetime import datetime
+from jcardoso.states.GlobalState import GlobalState
 from jcardoso.styles.styles import summary_style, summary_content_style, title_card_styles
+
 
 def summary() -> rx.Component:
     today = datetime.now()
     birthday = datetime.strptime('1990-01-09', "%Y-%m-%d")
     edad = today.year - birthday.year - ((today.month, today.day) < (birthday.month, birthday.day))
     return rx.vstack(
-        rx.text('Un poco sobre mi', id='about', style=title_card_styles),
+        rx.text(GlobalState.labels.items_menu[0][2], id=GlobalState.labels.items_menu[0][0], style=title_card_styles),
         rx.vstack(
             rx.text(
                 f'''

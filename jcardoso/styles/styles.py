@@ -35,11 +35,12 @@ container_style = dict(
 )
 
 flex_container_style = dict(
-    flex_direction=['column','column','column','row','row']
+    flex_direction=['column','column','column','row','row'],
 )
 
 header_style = dict(
-    padding_y = Size.HUGE.value,
+    padding_top = Size.HUGE.value,
+    padding_bottom = [Size.DEFAULT.value, Size.DEFAULT.value, Size.DEFAULT.value, Size.HUGE.value, Size.HUGE.value],
     width=['100%','100%','100%','45%','45%'],
     align_items=['center','center','center','start','start',],
 )
@@ -50,12 +51,13 @@ header_tags_style = dict(
 )
 
 header_links_style = dict(
-    justify='center',
+    justify_content=['center', 'center', 'center','start', 'start'],
+    width='100%'
 )
 
 main_style = dict(
     padding_y = [Size.DEFAULT.value,Size.DEFAULT.value,Size.DEFAULT.value,Size.ZERO.value,Size.ZERO.value],
-    padding_right = [0,0,0,Size.DEFAULT.value,Size.DEFAULT.value], 
+    padding_right = [Size.DEFAULT.value,Size.DEFAULT.value,Size.DEFAULT.value,Size.DEFAULT.value,Size.DEFAULT.value], 
     width=['100%','100%','100%','55%','55%'],
     height=['100%','100%','100%', '100vh','100vh']
 )
@@ -69,6 +71,7 @@ header_title_styles = dict(
     color=Color.SECODARY.value,
     font_size=Size.BIGGER.value,
     font_family=Font.LOGO.value,
+    text_align=['center', 'center', 'center', 'start', 'start', ]
 )
 
 icons_style = dict(
@@ -79,7 +82,7 @@ icons_style = dict(
 summary_style = dict(
     text_align='justify',
     padding_x='5px',
-    padding_top = Size.HUGE.value
+    padding_top =  [Size.DEFAULT.value, Size.DEFAULT.value, Size.DEFAULT.value, Size.HUGE.value, Size.HUGE.value]
 )
 
 summary_content_style = dict(

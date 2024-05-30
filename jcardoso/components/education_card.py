@@ -6,12 +6,20 @@ def education_car(
         end:str,
         career:str,
         location:str,
-        others:str = ''
+        others:str = '',
+        icon:str = 'crecic.jpg',
 ) -> rx.Component:
     return rx.flex(
         rx.box(
             rx.text(f'{start} - {end}', align='center'),
-            width='30%',
+            width='20%',
+        ),
+        rx.box(
+            rx.flex(
+                rx.avatar(src=f'logos/logo_{icon}'),
+                width='100%'
+            ),
+            width='10%',
         ),
         rx.box(
             rx.vstack(
@@ -25,5 +33,6 @@ def education_car(
             ),
             width='70%',
         ),
-        style=work_card_style
+        style=work_card_style,
+        spacing='2'
     )

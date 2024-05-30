@@ -20,19 +20,19 @@ def index() -> rx.Component:
             }
         """),
         rx.flex(
-            sidebar(GlobalState.labels.items_menu),
+            sidebar(),
             main(),
-            style=flex_container_style
+            style=flex_container_style,
+            spacing='4'
         ),
         style=container_style
     )
 
-
-
 app = rx.App(
+    theme=rx.theme(appearance='dark'),
     style=styles.BASE_STYLE,
     stylesheets=[
         FONTS_URL
-    ]
+    ],
 )
 app.add_page(index)

@@ -2,11 +2,12 @@ import reflex as rx
 import importlib
 from typing import List
 import jcardoso.bases.bases as bases
+from jcardoso.translations import en, es
 
 class GlobalState(rx.State):
-    lang: str = 'en'
+    lang: str = 'es'
     skilled_jobs: bool= True
-    labels: bases.Labels = None
+    labels: bases.Labels = es.labels
     navbar: bases.Navbar = None
     about: bases.About = None
     jobs: List[bases.WorkExperienceCard] = []
@@ -23,8 +24,10 @@ class GlobalState(rx.State):
         self.get_data()
 
     def get_data(self):
-        data = importlib.import_module(f'...translations.{self.lang}', package=__name__)
-        self.labels = data.labels
+        if self.lang == 'es':
+            self.labels = es.labels
+        else:
+            self.labels = en.labels
         # self.header = data.header
         # self.jobs = data.jobs if self.skilled_jobs else [job for job in self.jobs if job.get('skilled') == True]
     
