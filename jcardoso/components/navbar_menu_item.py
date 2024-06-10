@@ -9,7 +9,7 @@ def navbar_menu_item(name: str, reference:str)-> rx.Component:
         color=TextColor.BODY,
         on_click=lambda: scroll_to_element(reference),
         value=reference,
-        padding_x='0'
+        padding_x='0',
     )
 
 def scroll_to_element(element_id: str):

@@ -1,45 +1,77 @@
 import reflex as rx
-from jcardoso.styles.styles import work_card_style
+from typing import List
+from jcardoso.states.GlobalState import GlobalState
+from jcardoso.bases.bases import WorkExperienceCard
+from jcardoso.styles.styles import work_card_style, work_card_date, work_card_body, title_card_style
+from jcardoso.components.custom_badge import custom_badge
 
-def word_card() -> rx.Component:
+class WorkCardState(rx.State):
+    skills:List[str] = []
+
+    @classmethod
+    def update_listskills(cls, new_name: List[str]):
+        cls.skills = new_name
+          
+def word_card(job: WorkExperienceCard) -> rx.Component:
+    WorkCardState.update_listskills(job.skills)
     return rx.flex(
         rx.box(
-            rx.text('Ene-2023 / Actualidad'),
-            width='20%',
-            text_align='center'
+            rx.text(f'{job.date_from} / {job.date_to}'),
+            style=work_card_date
         ),
         rx.box(
             rx.vstack(
                 rx.hstack(
                     rx.box(
                         rx.flex(
-                            rx.avatar(src='logos/logo_crecic.jpg'),
-                            width='100%'
+                            rx.avatar(src=f'logos/logo_{job.icon}'),
+                            width='100%',
                         ),
                     ),
                     rx.vstack(
+                        rx.text.strong(job.position, **title_card_style),
                         rx.hstack(
-                            rx.text('Crecic S.A.'),
+                            rx.text(
+                                job.company,
+                            ),
                             rx.link(
                                 rx.icon('external-link', style={'height': '16px', 'color':'#FFFFFF'}),
-                                href='https://www.crecic.cl',
+                                href=job.website,
                                 is_external=True
                             ),
-                            spacing='1'
+                            rx.text(job.location),
+                            spacing='1',
+                            align='center'
                         ),
-                        rx.text('Concepcion, Chile'),
                         spacing='1'
                     ),
                     spacing='3',
-                    align_items='center'
+                    align='center'
                 ),
-                rx.text('Cargo: Analista Programador'),
-                rx.text('Descripción de cargo:'),
-                rx.text('holaaaaaa aaaaaaaaaaa aaaaaaaaaaaaa aaaaaaaa aaaaaa aaaaa'),
+                rx.text.strong(f'{GlobalState.labels.work_card[1]}: '),
+                rx.foreach(
+                    job.description,
+                    lambda item: rx.text(item)
+                ),
+                rx.cond(
+                    WorkCardState.skills,
+                    rx.fragment(
+                        rx.text.strong(f'{GlobalState.labels.work_card[2]}: '),
+                        rx.flex(
+                            rx.foreach(
+                                job.skills,
+                                lambda skill: custom_badge(skill)
+                            ),
+                            spacing='3',
+                            margin_top='5px',
+                            wrap='wrap'
+                        )
+                    )
+                ),
                 spacing='1'
             ),
-            width='80%',
+            style=work_card_body
         ),
         style=work_card_style,
-        spacing='3'
+        spacing='3',
     )
