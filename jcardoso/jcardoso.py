@@ -32,7 +32,7 @@ app = rx.App(
     theme=rx.theme(appearance='dark'),
     style=styles.BASE_STYLE,
     stylesheets=[
-        FONTS_URL
+        FONTS_URL,
     ],
 )
 app.add_page(index)

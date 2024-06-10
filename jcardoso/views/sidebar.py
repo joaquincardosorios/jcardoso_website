@@ -1,6 +1,7 @@
 import reflex as rx
-from jcardoso.styles.styles import header_style, header_links_style
+
 import jcardoso.constants as constants
+from jcardoso.styles.sidebar import header_style, header_links_style
 from jcardoso.components.header_title import header_title
 from jcardoso.components.link_icon import link_icon
 from jcardoso.components.navbar_menu_item import navbar_menu_item
@@ -8,10 +9,6 @@ from jcardoso.components.language_switch import language_switch
 from jcardoso.components.footer import footer
 
 from jcardoso.states.GlobalState import GlobalState
-from jcardoso.translations import en, es
-from typing import List
-from jcardoso.bases.bases import Labels
-
 
 def sidebar() -> rx.Component:
     return rx.vstack(
@@ -38,13 +35,12 @@ def sidebar() -> rx.Component:
                             GlobalState.labels.items_menu,
                             lambda item: (navbar_menu_item(item[1], item[0]))
                         ),
-                        justify_content='start'
+                        justify_content='start',
                     ),
                     default_value="about",
                     orientation='horizontal',
-                    justify_content='center'
                 ),
-                width='100%'
+                align_self='center',
             ),  
             width='100%'
         ),

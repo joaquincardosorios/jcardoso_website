@@ -1,15 +1,9 @@
 import reflex as rx
-from typing import List, Dict
+from typing import List, Dict, Callable
 
 class Labels(rx.Model):
     items_menu: List[List[str]]
-    # about: str
-    # work_experience: str
-    # we_description :str
-    # we_skills: str
-    # education: str
-    # projects: str
-    # others: str
+    work_card: List[str]
 
 class Navbar(rx.Base):
     description_list: List[str]
@@ -25,5 +19,14 @@ class WorkExperienceCard(rx.Base):
     position:str
     location:str
     website:str
-    description:str
+    description:List[str]
     skills: List[str]
+
+class EducationExperience(rx.Base):
+    year_start: int
+    year_end: int
+    icon: str
+    title: str
+    institution: str
+    other_title: str = ''
+    other: str = ''
