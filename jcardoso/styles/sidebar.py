@@ -15,10 +15,18 @@ header_title_styles = dict(
     text_align=['center', 'center', 'center', 'start', 'start', ]
 )
 
+space_style = dict(
+    width=['100%','100%','100%','45%','45%'],
+)
+
 header_style = dict(
+    position='sticky',
+    top='0',
+    left='0',
     padding_top = Size.HUGE.value,
     padding_bottom = [Size.DEFAULT.value, Size.DEFAULT.value, Size.DEFAULT.value, Size.HUGE.value, Size.HUGE.value],
-    width=['100%','100%','100%','45%','45%'],
+    width='100%',
+    height=['100%','100%','100%','100vh','100vh'],
     align_items=['center','center','center','start','start',],
 )
 

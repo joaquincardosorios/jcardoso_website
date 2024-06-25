@@ -29,7 +29,7 @@ BASE_STYLE = {
 }
 
 container_style = dict(
-    height= ['100%','100%','100%', '100vh','100vh'],
+    height= '100%',
     margin_x= 'auto',
     max_width= '1124px',
     padding_x=Size.LARGE.value
@@ -44,7 +44,8 @@ title_section_styles = dict(
 )
 
 title_card_style = dict(
-    font_size='1.2em'
+    font_size='1.2em',
+    line_height='1.1em'
 )
 
 icons_style = dict(

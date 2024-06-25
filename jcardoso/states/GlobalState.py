@@ -11,6 +11,8 @@ class GlobalState(rx.State):
     about: bases.About = es.about
     work_experience : List[bases.WorkExperienceCard] = es.work_experience
     education: List[bases.EducationExperience] = es.education
+    courses: List[bases.EducationExperience] = es.other_studies
+    projects: List[bases.Project] = es.projects
 
     def toggle_language(self):
         if self.lang == 'en':
@@ -30,12 +32,15 @@ class GlobalState(rx.State):
             self.navbar = es.navbar
             self.about = es.about
             self.education = es.education
+            self.courses = es.other_studies
+            self.projects = es.projects
         else:
             self.labels = en.labels
             self.work_experience = en.work_experience
             self.navbar = en.navbar
             self.about = en.about
             self.education = en.education
+            self.projects = en.projects
         # self.header = data.header
         # self.jobs = data.jobs if self.skilled_jobs else [job for job in self.jobs if job.get('skilled') == True]
     

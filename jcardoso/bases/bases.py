@@ -30,3 +30,16 @@ class EducationExperience(rx.Base):
     institution: str
     other_title: str = ''
     other: str = ''
+    link_title: str = ''
+    link: str = ''
+    skills: List[str] = []
+    status: str
+
+class Project(rx.Base):
+    title: str
+    date: str
+    description: str
+    technologies: List[str]
+    repository: str = ''
+    link: str = ''
+    img: str = ''

@@ -8,6 +8,6 @@ main_scroll_area_style=dict(
 )
 
 main_style = dict(
+    width=['100%','100%','100%','55%','55%'],
     padding_y = [Size.DEFAULT.value,Size.DEFAULT.value,Size.DEFAULT.value,Size.ZERO.value,Size.ZERO.value],
-    width='100%',
 )

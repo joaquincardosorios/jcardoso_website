@@ -11,25 +11,36 @@ class WorkCardState(rx.State):
     @classmethod
     def update_listskills(cls, new_name: List[str]):
         cls.skills = new_name
-          
+
+
+# Fechas
+        # rx.box(
+        #     rx.text(f'{job.date_from} / {job.date_to}'),
+        #     style=work_card_date
+        # ),
 def word_card(job: WorkExperienceCard) -> rx.Component:
     WorkCardState.update_listskills(job.skills)
     return rx.flex(
         rx.box(
-            rx.text(f'{job.date_from} / {job.date_to}'),
-            style=work_card_date
-        ),
-        rx.box(
             rx.vstack(
                 rx.hstack(
-                    rx.box(
-                        rx.flex(
-                            rx.avatar(src=f'logos/logo_{job.icon}'),
-                            width='100%',
-                        ),
+                    # Logo
+                    rx.flex(
+                        rx.avatar(src=f'logos/logo_{job.icon}', height='100%'),
+                        height='100%',
+                        flex='1'
                     ),
+                    # Titulo, Empresa y Ubicacion
                     rx.vstack(
-                        rx.text.strong(job.position, **title_card_style),
+                        rx.flex(
+                            rx.text.strong(job.position, **title_card_style),
+                            rx.text(f'({job.date_from} - {job.date_to})'),
+                            justify='between',
+                            align='center',
+                            width='100%',
+                            wrap='wrap',
+                            spacing='1'
+                        ),
                         rx.hstack(
                             rx.text(
                                 job.company,
@@ -43,32 +54,40 @@ def word_card(job: WorkExperienceCard) -> rx.Component:
                             spacing='1',
                             align='center'
                         ),
-                        spacing='1'
+                        spacing='1',
+                        width='100%'
                     ),
-                    spacing='3',
-                    align='center'
+                    spacing='2',
+                    align='center',
+                    width='100%'
                 ),
-                rx.text.strong(f'{GlobalState.labels.work_card[1]}: '),
-                rx.foreach(
-                    job.description,
-                    lambda item: rx.text(item)
+                # Descripcion
+                rx.box(
+                    rx.text.strong(f'{GlobalState.labels.work_card[1]}: '),
+                        rx.foreach(
+                            job.description,
+                            lambda item: rx.text(item, style={'text_align':'justify'})
+                        ),
+                    spacing='1'
                 ),
+                # Habilidades
                 rx.cond(
                     WorkCardState.skills,
-                    rx.fragment(
+                    rx.box(
                         rx.text.strong(f'{GlobalState.labels.work_card[2]}: '),
                         rx.flex(
                             rx.foreach(
                                 job.skills,
                                 lambda skill: custom_badge(skill)
                             ),
-                            spacing='3',
+                            spacing='2',
                             margin_top='5px',
                             wrap='wrap'
-                        )
+                        ),
+                        spacing='1'
                     )
                 ),
-                spacing='1'
+                spacing='3'
             ),
             style=work_card_body
         ),

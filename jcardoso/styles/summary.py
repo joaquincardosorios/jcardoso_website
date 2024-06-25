@@ -9,4 +9,5 @@ summary_style = dict(
 
 summary_content_style = dict(
     padding_x = [Size.ZERO.value, Size.ZERO.value, Size.ZERO.value, Size.BIG.value, Size.BIG.value],
+    font_size=Size.MEDIUM.value
 )

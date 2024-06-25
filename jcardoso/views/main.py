@@ -7,18 +7,13 @@ from .other_studies import other_studies
 from .projects import projects
 
 def main() -> rx.Component:
-    return rx.scroll_area(
-        rx.vstack(
-            summary(),
-            work_experience(),
-            education(),
-            other_studies(),
-            projects(),
-            spacing='9',
-            padding_x = ['0','0','0','1em','1em'], 
-            **main_style
-        ),
-        scrollbars='vertical',
-        type="hover",
-        **main_scroll_area_style,
+    return rx.vstack(
+        summary(),
+        work_experience(),
+        education(),
+        other_studies(),
+        projects(),
+        spacing='9',
+        padding_x = ['0','0','0','1em','1em'], 
+        **main_style
     )

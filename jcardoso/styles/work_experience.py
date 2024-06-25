@@ -6,7 +6,7 @@ shadow = '0 4px 8px rgba(0, 0, 0, 0.3), 0 6px 20px rgba(0, 0, 0, 0.19)'
 
 work_card_style = dict(
     width='100%',
-    padding = [Size.MEDIUM.value, Size.MEDIUM.value, Size.MEDIUM.value, Size.BIG.value, Size.BIG.value],
+    padding = [Size.BIG.value, Size.BIG.value, Size.BIG.value, Size.BIG.value, Size.BIG.value],
     border_radius = '15px',
     transition= 'background-color 0.5s ease',
     font_size = [Size.DEFAULT.value,Size.DEFAULT.value,Size.DEFAULT.value,Size.MEDIUM.value,Size.MEDIUM.value],
@@ -25,5 +25,5 @@ work_card_date = dict(
 )
 
 work_card_body = dict(
-    width=['100%', '100%', '100%', '80%','80%'],
+    width='100%',
 )
