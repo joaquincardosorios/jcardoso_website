@@ -1,7 +1,7 @@
 import reflex as rx
 from typing import List
 from jcardoso.states.GlobalState import GlobalState
-from jcardoso.styles.styles import work_card_style, title_card_style, work_card_date, work_card_body
+from jcardoso.styles.styles import work_card_style, title_card_style, work_card_body
 from jcardoso.bases.bases import EducationExperience
 from jcardoso.components.custom_badge import custom_badge
 

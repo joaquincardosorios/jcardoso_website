@@ -8,7 +8,7 @@ labels: Labels = Labels(
         ['education','Education','Education', 'Status', 'Relevant Skills'], 
         ['courses', 'Courses', 'Courses and Certifications'],
         ['projects' , 'Projects','My projects'], 
-        ['others','Others']
+        ['others','Others', 'Others']
     ],
     work_card=['Position', 'Job description', 'Skills', 'Status', 'Repository', 'Techonologies', 'Open certificate']
 )
@@ -208,5 +208,23 @@ projects: List[Project] = [
         technologies=['HTML', 'React', 'Tailwind', 'Vercel'],
         link='https://pg-estudio.vercel.app/',
         img='pg_estudio.png'
+    ),
+]
+
+my_engineering_project: List[VideoCard] = [
+    VideoCard(
+        title='First stage',
+        img='paso1.png',
+        link='https://youtube.com/shorts/PYBbdvNCDlU'
+    ),
+    VideoCard(
+        title='Second stage',
+        img='paso2.png',
+        link='https://youtube.com/shorts/PYBbdvNCDlU'
+    ),
+    VideoCard(
+        title='Final stage',
+        img='paso3.png',
+        link='https://youtube.com/shorts/PYBbdvNCDlU'
     ),
 ]

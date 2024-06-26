@@ -5,6 +5,7 @@ from .work_experience import work_experience
 from .education import education
 from .other_studies import other_studies
 from .projects import projects
+from .others import others
 
 def main() -> rx.Component:
     return rx.vstack(
@@ -13,6 +14,7 @@ def main() -> rx.Component:
         education(),
         other_studies(),
         projects(),
+        others(),
         spacing='9',
         padding_x = ['0','0','0','1em','1em'], 
         **main_style

@@ -43,3 +43,9 @@ class Project(rx.Base):
     repository: str = ''
     link: str = ''
     img: str = ''
+
+class VideoCard(rx.Base):
+    title:str
+    img: str
+    link: str
+    description: str= ''

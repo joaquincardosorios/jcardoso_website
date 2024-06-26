@@ -11,6 +11,7 @@ from .sidebar import *
 from .education import *
 from .work_experience import *
 from .projects import *
+from .others import *
 
 
 # Style

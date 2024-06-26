@@ -13,6 +13,7 @@ class GlobalState(rx.State):
     education: List[bases.EducationExperience] = es.education
     courses: List[bases.EducationExperience] = es.other_studies
     projects: List[bases.Project] = es.projects
+    my_engineering_project: List[bases.VideoCard] = es.my_engineering_project
 
     def toggle_language(self):
         if self.lang == 'en':
@@ -34,6 +35,8 @@ class GlobalState(rx.State):
             self.education = es.education
             self.courses = es.other_studies
             self.projects = es.projects
+            self.my_engineering_project = es.my_engineering_project
+            # self.others = es.others
         else:
             self.labels = en.labels
             self.work_experience = en.work_experience
@@ -41,6 +44,8 @@ class GlobalState(rx.State):
             self.about = en.about
             self.education = en.education
             self.projects = en.projects
+            self.my_engineering_project = en.my_engineering_project
+            # self.others = en.others
         # self.header = data.header
         # self.jobs = data.jobs if self.skilled_jobs else [job for job in self.jobs if job.get('skilled') == True]
     

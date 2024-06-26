@@ -215,3 +215,21 @@ projects: List[Project] = [
         img='pg_estudio.png'
     ),
 ]
+
+my_engineering_project: List[VideoCard] = [
+    VideoCard(
+        title='Primera etapa',
+        img='paso1.png',
+        link='https://youtube.com/shorts/PYBbdvNCDlU'
+    ),
+    VideoCard(
+        title='Segunda etapa',
+        img='paso2.png',
+        link='https://youtube.com/shorts/9wCGYjpGc5o'
+    ),
+    VideoCard(
+        title='Etapa final',
+        img='paso3.png',
+        link='https://youtube.com/shorts/zs9NLPi_T5Q'
+    ),
+]
